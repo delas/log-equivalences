@@ -33,10 +33,14 @@ def evaluation_complete(logA, logB):
     return True
 
 
+def current_milli_time():
+    return time.perf_counter_ns()
+
+
 def monitor(eq_func, logA, logB):
-    start_time = time.time()
+    start_time = current_milli_time()
     eq_func(logA, logB)
-    return time.time() - start_time
+    return current_milli_time() - start_time
 
 
 for i in range(12):
